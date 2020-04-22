@@ -5,8 +5,6 @@
 # Site
 title: cat's blog
 subtitle: '穷且益坚，不坠青云之志'
-description: ''
-keywords:
 author: coolkeychen
 language: zh-CN
 timezone: ''
@@ -20,6 +18,13 @@ permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# Site settings
+SEOTitle: Cat的博客 | cat's Blog
+header-img: img/last_knight.jpg
+email: coolkeychen@gmail.com
+description: ""
+keyword: ""
 
 # Directory
 source_dir: source
@@ -65,6 +70,11 @@ index_generator:
 default_category: uncategorized
 category_map:
 tag_map:
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "键盘上的钢琴师!"
+sidebar-avatar: img/avatar.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
