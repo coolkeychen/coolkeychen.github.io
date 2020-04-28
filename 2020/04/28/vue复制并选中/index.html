@@ -13,11 +13,11 @@
 
     <title>
         
-          Cat的博客 | cat&#39;s Blog
+          vue复制并选中 - Cat的博客 | cat&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://coolkeychen.github.io/">
+    <link rel="canonical" href="http://coolkeychen.github.io/2020/04/28/vue复制并选中/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -129,277 +129,118 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/last_knight.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://coolkeychen.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/last_knight.jpg')
+    }
+</style>
+<header class="intro-header" >
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>cat&#39;s blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">穷且益坚，不坠青云之志</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#vue" title="vue">vue</a>
+                        
+                    </div>
+                    <h1>vue复制并选中</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by coolkeychen on
+                        2020-04-28
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <!-- Main Content -->
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>最近做了几个活动专题页，经常用到复制推荐语，并且模拟选中状态功能并分享到朋友圈的功能，需要用到原生的复制功能，以下是复制功能以及模拟选中的状态</p>
+</blockquote>
+<ol>
+<li>复制功能</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let url &#x3D; this.recommendText;</span><br><span class="line">let oInput &#x3D; document.createElement(&#39;input&#39;);</span><br><span class="line">oInput.value &#x3D; url;</span><br><span class="line">document.body.appendChild(oInput);</span><br><span class="line">oInput.select(); &#x2F;&#x2F; 选择对象;</span><br><span class="line">document.execCommand(&quot;Copy&quot;); </span><br><span class="line">oInput.remove();</span><br></pre></td></tr></table></figure>
 
-<div class="post-preview">
+<ol start="2">
+<li>模似选中状态功能</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const range &#x3D; document.createRange();</span><br><span class="line">range.selectNode(document.getElementById(&#39;copytext&#39;));</span><br><span class="line">const selection &#x3D; window.getSelection();</span><br><span class="line">if(selection.rangeCount &gt; 0) selection.removeAllRanges();</span><br><span class="line">selection.addRange(range);</span><br></pre></td></tr></table></figure>
 
-    <a href="/2020/04/28/vue复制并选中/">
-        <h2 class="post-title">
-            vue复制并选中
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-最近做了几个活动专题页，经常用到复制推荐语，并且模拟选中状态功能并分享到朋友圈的功能，需要用到原生的复制功能，以下是复制功能以及模拟选中的状态
+                <hr>
 
+                
 
-复制功能
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2020/04/27/美言摘录/" data-toggle="tooltip" data-placement="top" title="美言摘录">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
-1234567let url &#x3D; this.recommendText;let oInput &#x3D; document.createElement(&#39;input&#39;);oInput.value &#......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by coolkeychen on
-        2020-04-28
-    </p>
+                
 
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/04/27/美言摘录/">
-        <h2 class="post-title">
-            美言摘录
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-人生转眼一瞬，突然感觉人生过了大半，本人也经常看书，本文章摘录一些个人觉得美妙的语句，偶尔也发发小感慨，收录在此文章里。
-
-
-有些事你想去做，现在不做，可能一辈子都没机会去做了
-间歇性踌躇满志,持续性混吃等死
-枕头要常晒,因为里面装满了心酸的泪和发霉的梦
-见识多广的人，永远比见识有限的人有更多的信息，更多的经验，更强的判断能力和心理承受能力
-行万里路，读万卷书
-世界上没有坐享其成的好事，要......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by coolkeychen on
-        2020-04-27
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/04/23/git-常用命令/">
-        <h2 class="post-title">
-            git 常用命令
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言
-随着 分布式版本控制系统GIT 越来越受欢迎，平时进行代码提交，把经常用到的一些命令记录下来，好记录不如烂笔头。
-
-git 常用命令
-git config 设置名字/email
-123git config --global user.name &quot;coolkeychen&quot;git config --global user.email &quot;coolkeychen@......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by coolkeychen on
-        2020-04-23
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/04/16/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by coolkeychen on
-        2020-04-16
-    </p>
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
-
-
-                <!-- 如果开启评论功能 -->
                 
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <!-- no hr -->
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        
-                            
-                        
-                            
-                        
-                            
+                       
+                          <a class="tag" href="/tags/#vue" title="vue">vue</a>
                         
                     </div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/avatar.jpg" />
-                        
-
-                        
-                            <p>键盘上的钢琴师!</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://twitter.com/coolkeychen">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.zhihu.com/people/coolkeychen">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="http://weibo.com/coolkeychen">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="https://www.facebook.com/coolkeychen">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-
-                            
-                                <li>
-                                    <a target="_blank"  href="https://github.com/coolkeychen">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                                <li>
-                                    <a target="_blank"  href="https://www.linkedin.com/in/coolkeychen">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
 
 
     <!-- Footer -->
