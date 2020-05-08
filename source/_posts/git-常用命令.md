@@ -67,7 +67,7 @@ sudo vim ~/.gitconfig
     helper = store
 ```
 
-10.记录用户命令  
+10. 记录用户命令  
 
 1.设置记住密码（默认15分钟）;
 ```
@@ -84,4 +84,15 @@ git config --global credential.helper store
 4.增加远程地址的时候带上密码也是可以的。
 ```
 git pull https://yourname:password@github.comcoolkeychen/blog.git
+```
+
+11. 当前仓库配置
+```
+git config --local user.name '你的名字'
+git config --local user.email '你的邮箱'
+```
+
+12. 查看当前仓库配置
+```
+git config --local --list
 ```
