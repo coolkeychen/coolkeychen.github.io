@@ -177,14 +177,13 @@
 <p>最近做了几个活动专题页，经常用到复制推荐语，并且模拟选中状态功能并分享到朋友圈的功能，需要用到原生的复制功能，以下是复制功能以及模拟选中的状态</p>
 </blockquote>
 <ol>
-<li>复制功能</li>
-</ol>
+<li><p>复制功能</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let url &#x3D; this.recommendText;</span><br><span class="line">let oInput &#x3D; document.createElement(&#39;input&#39;);</span><br><span class="line">oInput.value &#x3D; url;</span><br><span class="line">document.body.appendChild(oInput);</span><br><span class="line">oInput.select(); &#x2F;&#x2F; 选择对象;</span><br><span class="line">document.execCommand(&quot;Copy&quot;); </span><br><span class="line">oInput.remove();</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>模似选中状态功能</li>
+</li>
+<li><p>模似选中状态功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const range &#x3D; document.createRange();</span><br><span class="line">range.selectNode(document.getElementById(&#39;copytext&#39;));</span><br><span class="line">const selection &#x3D; window.getSelection();</span><br><span class="line">if(selection.rangeCount &gt; 0) selection.removeAllRanges();</span><br><span class="line">selection.addRange(range);</span><br></pre></td></tr></table></figure></li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const range &#x3D; document.createRange();</span><br><span class="line">range.selectNode(document.getElementById(&#39;copytext&#39;));</span><br><span class="line">const selection &#x3D; window.getSelection();</span><br><span class="line">if(selection.rangeCount &gt; 0) selection.removeAllRanges();</span><br><span class="line">selection.addRange(range);</span><br></pre></td></tr></table></figure>
+
 
                 <hr>
 

@@ -31,6 +31,7 @@
   border: none;
   margin: 0;
   padding: 1px;
+  white-space: break-spaces;
 }
 .post-container .highlight table {
   margin: 0;
