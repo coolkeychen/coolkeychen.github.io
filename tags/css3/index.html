@@ -13,11 +13,11 @@
 
     <title>
         
-          vue复制并选中 - Cat的博客 | cat&#39;s Blog
+          Cat的博客 | cat&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://coolkeychen.github.io/2020/04/28/vue复制并选中/">
+    <link rel="canonical" href="http://coolkeychen.github.io/tags/css3/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -150,122 +150,7 @@
 
 
     <!-- Main Content -->
-    
-<!-- Image to hack wechat -->
-<!-- <img src="http://coolkeychen.github.io/img/icon_wechat.png" width="0" height="0"> -->
-<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
-
-<!-- Post Header -->
-<style type="text/css">
-    header.intro-header{
-        background-image: url('/img/last_knight.jpg')
-    }
-</style>
-<header class="intro-header" >
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                          <a class="tag" href="/tags/#vue" title="vue">vue</a>
-                        
-                    </div>
-                    <h1>vue复制并选中</h1>
-                    <h2 class="subheading"></h2>
-                    <span class="meta">
-                        Posted by coolkeychen on
-                        2020-04-28
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-    <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>最近做了几个活动专题页，经常用到复制推荐语，并且模拟选中状态功能并分享到朋友圈的功能，需要用到原生的复制功能，以下是复制功能以及模拟选中的状态</p>
-</blockquote>
-<ol>
-<li><p>复制功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let url &#x3D; this.recommendText;</span><br><span class="line">let oInput &#x3D; document.createElement(&#39;input&#39;);</span><br><span class="line">oInput.value &#x3D; url;</span><br><span class="line">document.body.appendChild(oInput);</span><br><span class="line">oInput.select(); &#x2F;&#x2F; 选择对象;</span><br><span class="line">document.execCommand(&quot;Copy&quot;); </span><br><span class="line">oInput.remove();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>模似选中状态功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const range &#x3D; document.createRange();</span><br><span class="line">range.selectNode(document.getElementById(&#39;copytext&#39;));</span><br><span class="line">const selection &#x3D; window.getSelection();</span><br><span class="line">if(selection.rangeCount &gt; 0) selection.removeAllRanges();</span><br><span class="line">selection.addRange(range);</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-
-                <hr>
-
-                
-
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/2020/04/30/数组去重/" data-toggle="tooltip" data-placement="top" title="数组去重">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/2020/04/27/美言摘录/" data-toggle="tooltip" data-placement="top" title="美言摘录">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
-
-                
-
-                
-
-            </div>
-    <!-- Side Catalog Container -->
-        
-
-    <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       
-                          <a class="tag" href="/tags/#vue" title="vue">vue</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
-
-        </div>
-    </div>
-</article>
-
-
-
-
-
-
-
-
+    <!-- Default Archive layout, we use archives instead. -->
 
     <!-- Footer -->
     <!-- Footer -->

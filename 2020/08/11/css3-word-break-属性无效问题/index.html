@@ -13,11 +13,11 @@
 
     <title>
         
-          数组去重 - Cat的博客 | cat&#39;s Blog
+          css3 word-break 属性无效问题 - Cat的博客 | cat&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://coolkeychen.github.io/2020/04/30/数组去重/">
+    <link rel="canonical" href="http://coolkeychen.github.io/2020/08/11/css3-word-break-属性无效问题/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -168,12 +168,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                          <a class="tag" href="/tags/#css3" title="css3">css3</a>
+                        
                     </div>
-                    <h1>数组去重</h1>
+                    <h1>css3 word-break 属性无效问题</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by coolkeychen on
-                        2020-04-30
+                        2020-08-11
                     </span>
                 </div>
             </div>
@@ -193,47 +195,15 @@
                 post-container">
 
                 <blockquote>
-<p>数组去重是一个比较经典的面试题，也是项目开发中经常遇到的问题，一般项目开发中，直接叫后台用sql语句去重，简单而且高效</p>
+<p>今天在整理 blog，看到以往的blog 样式有点丑，代码区块不会自动换行，一条又一条又粗又灰的滚动条，影响到整个页面的美观。看了一下代码区块的样式，word-break 没生效，导致无法自动换行</p>
 </blockquote>
-<ol>
-<li><p>Filter 数组过滤</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function uniqueArray (arr) &#123;</span><br><span class="line"> return arr.filter((value, index, self) &#x3D;&gt; self.indexOf(value) &#x3D;&#x3D;&#x3D; index)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>indexOf 去重  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function indexOfUnique(arr) &#123;</span><br><span class="line">    let res &#x3D; [];</span><br><span class="line">    for (let i &#x3D; 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">        if(res.indexOf(arr[i])&#x3D;&#x3D;-1) &#123;</span><br><span class="line">            res.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>includes 去重</p>
-<blockquote>
-<p>ES5提供一个新的特性，include；判断数组里是否包含一个指定的值，如果有，返回true，没有返回false</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function includesUnique(arr) &#123;</span><br><span class="line">    let res &#x3D; [];</span><br><span class="line">    for (let i &#x3D; 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">        const tmpVal &#x3D; arr[i]</span><br><span class="line">         if(!res.includes(tmpVal))&#123;</span><br><span class="line">             res.push(tmpVal);</span><br><span class="line">         &#125;       </span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="为什么-word-break-没生效-？"><a href="#为什么-word-break-没生效-？" class="headerlink" title="为什么 word-break 没生效 ？"></a>为什么 word-break 没生效 ？</h2><ol>
+<li>word-break 不支持行内元素，span</li>
+<li>一般情况下，元素拥有默认的white-space:normal（自动换行，不换行是white-space:nowrap），可能是元素中设置的white-space是norwrap导致，无法换行。所以需要<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">white-space:normal;</span><br><span class="line">word-break:break-all;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<ol start="4">
-<li><p>双循环去重</p>
-<blockquote>
-<p>先定义一个包含原始数组第一个元素的数组，然后遍历原始数组，将原始数组中的每个元素与新数组中的每个元素进行比对，如果不重复则添加到新数组中，最后返回新数组；因为它的时间复杂度是O(n^2)，如果数组长度很大，那么将会非常耗费内存     </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const a &#x3D; [1,23,123,354,23,354,112,1,23];</span><br><span class="line"></span><br><span class="line">function doubleCirculationUnique(arr)&#123;</span><br><span class="line">    let tmp &#x3D; [arr[0]];</span><br><span class="line">    for(let i &#x3D;0; i&lt;arr.length; i++) &#123;</span><br><span class="line">        let flag &#x3D; true;</span><br><span class="line">        for (let j &#x3D; 0; j &lt; tmp.length; j++) &#123;</span><br><span class="line">            if(arr[i]&#x3D;&#x3D;&#x3D;tmp[j]) &#123;</span><br><span class="line">                flag &#x3D; false;</span><br><span class="line">                break;</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">        if(flag )&#123;</span><br><span class="line">            tmp.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Set 过滤</p>
-<blockquote>
-<p>ES6提供新的语法, set 可以直接过滤重复的元素,然后以对象格式返回  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function setUnique(arr) &#123; </span><br><span class="line">    return [...new Set(arr)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h2><blockquote>
-<p>当数组里的元素有 object 就不能再用此方法了，对象是引用类型，存储只是引用，指针; 而原始变量存储的是值；这时我们就要用到 hashTable；  </p>
-</blockquote>
-<ol>
-<li>哈希表在Javascript里是一个简单的Object，它的key永远是String类型；这意味着我们不能区分字符串和数字表示的相同的值，如1和’1’<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var hashTable &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">hashTable[1] &#x3D; true;</span><br><span class="line">hashTable[&#39;1&#39;] &#x3D; true;</span><br><span class="line"></span><br><span class="line">console.log(hashTable); &#x2F;&#x2F; &#123; &#39;1&#39;: true &#125;</span><br></pre></td></tr></table></figure></li>
-<li>我们使用的JSON.stringify，String类型的key将会被存储为一个字符串值，这样hashTable的key就唯一了。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var hashTable &#x3D; &#123;&#125;;</span><br><span class="line"></span><br><span class="line">hashTable[JSON.stringify(1)] &#x3D; true;</span><br><span class="line">hashTable[JSON.stringify(&#39;1&#39;)] &#x3D; true;</span><br><span class="line"></span><br><span class="line">console.log(hashTable); &#x2F;&#x2F; &#123; &#39;1&#39;: true, &#39;\&#39;1\&#39;&#39;: true &#125;</span><br></pre></td></tr></table></figure></li>
-<li>相同的值，但不同类型的元素，将以原来的格式保留   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function deepUnique(arr) &#123;</span><br><span class="line">    var hashTable &#x3D; &#123;&#125;;</span><br><span class="line">    return arr.filter(el&#x3D;&gt;&#123;</span><br><span class="line">        const key &#x3D; JSON.stringify(el);</span><br><span class="line">        const match &#x3D;Boolean(hashTable[key]);</span><br><span class="line">        return (match?false:hashTable[key] &#x3D; true);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>问题解决了， 感觉自己对 css3 掌握得还不是那么熟练，还需要对这一块加强练习</p>
 
 
                 <hr>
@@ -242,13 +212,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2020/07/07/vue-强制刷新子组件/" data-toggle="tooltip" data-placement="top" title="vue 强制刷新子组件">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2020/04/28/vue复制并选中/" data-toggle="tooltip" data-placement="top" title="vue复制并选中">Next Post &rarr;</a>
+                            <a href="/2020/07/07/vue-强制刷新子组件/" data-toggle="tooltip" data-placement="top" title="vue 强制刷新子组件">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -275,6 +241,8 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#css3" title="css3">css3</a>
+                        
                     </div>
                 </section>
                 
