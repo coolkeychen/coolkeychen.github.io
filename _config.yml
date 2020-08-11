@@ -92,7 +92,12 @@ featured-tags: true                     # whether or not using Feature-Tags
 featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
 
 
-
+menu:
+  home: /      //主页
+  categories: /categories //分类        
+  archives: /archives   //归档             （添加此行即可）
+  tags: /tags   //标签                  
+  about: /about   //关于
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
